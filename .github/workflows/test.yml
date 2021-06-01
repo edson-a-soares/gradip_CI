@@ -1,0 +1,31 @@
+name: test with gtest example
+
+on:
+  push:
+    branches:
+      - '**'                # matches every branch
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install gtest manually
+        run: |
+          sudo apt-get update -qq && sudo dpkg --add-architecture i386 && sudo apt-get install -yq --no-install-recommends libgtest-dev
+          cd /usr/src/gtest
+          sudo cmake .
+          sudo make
+          cd lib && sudo cp *.a /usr/lib
+      - uses: actions/checkout@v2
+      - name: Application build
+        run: |
+          sudo mkdir cmake-build
+          cd cmake-build
+          sudo cmake -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON ..
+          cd ..
+          sudo cmake --build cmake-build
+      - name: Run Test
+        run: |
+          ./bin/SubwayCardSystemTests --gtest_filter=* --gtest_color=yes
