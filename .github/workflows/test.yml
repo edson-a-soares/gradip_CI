@@ -28,4 +28,5 @@ jobs:
           sudo cmake --build cmake-build
       - name: Run Test
         run: |
-          ./bin/SubwayCardSystemTests --gtest_filter=* --gtest_color=yes
+          sudo chmod +x infrastructure/shell/run-tests.sh
+          ./infrastructure/shell/run-tests.sh
