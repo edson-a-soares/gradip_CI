@@ -9,7 +9,7 @@ TEST(BankAccountTest, WithdrawalWithSuccess)
     ASSERT_EQ(account.balance(), 100);
 
     account.withdrawal(25);
-    ASSERT_EQ(account.balance(), 75);
+    ASSERT_EQ(account.balance(), 80);
 
     account.withdrawal(25);
     ASSERT_EQ(account.balance(), 50);
