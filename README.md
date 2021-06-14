@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/edson-a-soares/travis.svg?branch=travis-ci)](https://travis-ci.org/edson-a-soares/travis)
+[![Build Status](https://travis-ci.org/edson-a-soares/gradip_CI.svg?branch=travis-ci)](https://travis-ci.org/edson-a-soares/gradip_CI)
 
 ## GDip, Continuous Integration discipline
 
