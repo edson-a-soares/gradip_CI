@@ -44,7 +44,7 @@ script:
   # It creates a separated CMake build directory for building the application.
   - cd $TRAVIS_BUILD_DIR && sudo mkdir cmake-build && cd cmake-build
   # It enables application building with tests.
-  - sudo cmake $TRAVIS_BUILD_DIR -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=yes
+  - sudo cmake $TRAVIS_BUILD_DIR -DCMAKE_BUILD_TYPE=Debug -DENABLE_TESTS=ON
   # It compiles the application and run the tests.
   - sudo cmake --build . --target all -- -j 2
   - cd $TRAVIS_BUILD_DIR && bash infrastructure/shell/run-tests.sh
